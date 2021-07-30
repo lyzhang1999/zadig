@@ -1,0 +1,16 @@
+configProperties:
+  version: v2
+
+application:
+  name: zadig
+  manifestType: helmRepo
+  services:
+    - name: aslan
+      serviceType: deployment
+      containers:
+        - name: aslan
+          dev:
+            gitUrl: https://github.com/koderover/zadig.git
+            image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zadig
+            workDir: /root/nocalhost-dev
+            shell: "/bin/zsh"
