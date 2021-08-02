@@ -14,3 +14,8 @@ application:
             image: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/golang:zadig
             workDir: /root/nocalhost-dev
             shell: "/bin/zsh"
+            command:
+              run: ["go", "run", "./cmd/aslan/main.go"]
+              debug: ["dlv", "debug", "./cmd/aslan/main.go", "--listen=:2345", "--headless=true", "--api-version=2", "--accept-multiclient"]
+            debug:
+              remoteDebugPort: 2345
